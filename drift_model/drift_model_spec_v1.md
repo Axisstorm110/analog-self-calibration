@@ -86,7 +86,7 @@ Let k be the training step. Wall-clock time t = t_c + k * t_step, with t_step th
 
 Not all of these are recoverable from a realistic on-chip measurement budget. A global amplitude drift (the nu scale) is cheap to estimate from a few pulse measurements. A per-cell gamma_res shape change is expensive. The Week 4 identifiability analysis sweeps the measurement budget k and reports estimation error per parameter. Negative findings are findings: naming what cannot be recovered defines what any full solution has to assume.
 
-## 6. Open decisions for sign-off (7/30)
+## 6. Open decisions
 
 1. Primary drift regime. This is the one to settle first, and it is not obvious. PCM t^-nu drift is classically a retention and inference problem: weights drift after programming, over seconds to years, while the device sits idle. Our setting is on-chip training, where weights are rewritten every step, so pure retention drift is partly refreshed by the training itself. The physically dominant training-time drift is cycling degradation (2.2) and variance growth (2.3), not retention. My recommendation: make cycling degradation the headline regime, keep PCM t^-nu as a secondary retention regime for runs with idle gaps. The board named all three, so this is a framing choice, not a scope cut. Hamzah should weigh in before anything runs.
 
